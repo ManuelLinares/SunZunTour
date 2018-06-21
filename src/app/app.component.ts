@@ -1,16 +1,20 @@
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from "@angular/platform-browser";
+import { Router, NavigationStart } from "@angular/router";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  constructor( @Inject(DOCUMENT) private document: Document) { };
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router
+  ) { };
 
-  title = 'Sun Zun Tour';
+  title = 'SUN ZUN TOUR';
 
   public navIsFixed: boolean = false;
 
@@ -22,5 +26,11 @@ export class AppComponent {
     } else if (this.navIsFixed && number < 15) {
       this.navIsFixed = false;
     }
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe((event: NavigationStart) => {
+      this.document.body.scrollTop = 0;
+    });
   }
 }

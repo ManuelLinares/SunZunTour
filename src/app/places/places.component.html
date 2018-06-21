@@ -1,90 +1,26 @@
-<div class="container-fluid" style="margin-bottom: 20px;">
-  <img class="img-responsive" src="assets/car1.jpg">
+<div class="top-image" *ngIf="config">
+  <img class="img-responsive" src="{{config.mainImgUrl}}">
+  <div class="mat-typography header-info">
+    <h1>Bla bla wonders of ...</h1>
+    <a md-button class="recomended-trip-button" routerLink="/varadero/dupon">Recomended Trip</a>
+  </div>
 </div>
-<div class="container text-center">
+<div class="container text-center mat-typography" *ngIf="config">
   <h1>Choose your favorite trip</h1>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="assets/thumb.jpg">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Some text asdhsdijf gasdgh adfhfiadh fdvb uhfa bvhabvahsvbhcobvj</p>
-          <p class="text-center"><a  class="btn btn-primary" role="button">More</a></p>
-        </div>
-      </div>
-    </div>
+<div class="container mat-typography" *ngIf="config">
+  <div class="cards-container" *ngFor="let card of config.cards">
+    <md-card class="hover-card">
+      <md-card-header>
+        <md-card-title>{{card.name}}</md-card-title>
+      </md-card-header>
+      <img md-card-image src="{{card.imgUrl}}" alt="Trip image">
+      <md-card-content>
+        <p>{{card.text}}</p>
+      </md-card-content>
+      <md-card-actions class="center-buttons">
+        <a md-button routerLink="{{card.id}}">MORE</a>
+      </md-card-actions>
+    </md-card>
   </div>
 </div>

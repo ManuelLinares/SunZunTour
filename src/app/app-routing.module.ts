@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PlacesComponent } from './places/places.component';
+import { TripComponent } from './trip/trip.component';
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { PlaceConfigResolverService } from "./place-config-resolver/place-config-resolver.service";
 
 const routes: Routes = [
   {
@@ -12,19 +15,26 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   }, {
-    path: 'vinales',
-    component: PlacesComponent
+    path: '404',
+    component: PageNotFoundComponent
   }, {
-    path: 'varadero',
-    component: PlacesComponent
+    path: ':place',
+    component: PlacesComponent,
+    resolve: {
+      config: PlaceConfigResolverService
+    }
   }, {
-    path: 'zapata-swamp',
-    component: PlacesComponent
+    path: ':place/:trip',
+    component: TripComponent
+  }, {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [PlaceConfigResolverService]
 })
 export class AppRoutingModule { }

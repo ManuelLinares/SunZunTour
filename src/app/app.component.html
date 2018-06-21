@@ -1,16 +1,19 @@
-<nav class="navbar navbar-default navbar-fixed-top mat-elevation-z10 showShadow app-nav" [ngClass]="{'app-nav-fixed': navIsFixed === true}">
-  <div class="container-fluid nav-inner">
-    <div class="navbar-header">
-      <a class="navbar-brand app-logo" routerLink="/home">
-        <img alt="Brand" src="assets/logo.png" height="100%">
-        <strong>{{title}}</strong>
-      </a>
-    </div>
-    <ul class="nav nav-center navbar-nav">
-      <li><a routerLink="/vinales">Viñales</a></li>
-      <li><a routerLink="/varadero">Varadero</a></li>
-      <li><a routerLink="/zapata-swamp">Zapatas's Swamp</a></li>
-    </ul>
-  </div>
-</nav>
+<md-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed}" class="mat-elevation-z10 app-nav" color="primary">
+  <md-menu #appMenu="mdMenu">
+    <button md-menu-item routerLink="/vinales"> Viñales </button>
+    <button md-menu-item routerLink="/varadero"> Varadero </button>
+    <button md-menu-item routerLink="/zapata-swamp"> Zapata's Swamp </button>
+  </md-menu>
+  <a md-button routerLink="/home" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">
+    <img src="assets/logo.png" height="26px">
+    <strong>{{title}}</strong>
+  </a>
+  <span class="show-mobile fill-width"></span>
+  <button md-icon-button [mdMenuTriggerFor]="appMenu" class="show-mobile">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <a md-button routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Viñales</a>
+  <a md-button routerLink="/varadero" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Varadero</a>
+  <a md-button routerLink="/zapata-swamp" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Zapata's Swamp</a>
+</md-toolbar>
 <router-outlet></router-outlet>
