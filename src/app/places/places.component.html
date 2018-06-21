@@ -4,7 +4,7 @@
   </div>
   <div class="mat-typography header-info">
     <h1>Bla bla wonders of ...</h1>
-    <a md-button class="recomended-trip-button" [routerLink]="[config.recomended]">Recomended Trip</a>
+    <a mat-button class="recomended-trip-button" [routerLink]="[config.recomended]">Recomended Trip</a>
   </div>
 </div>
 <div class="container text-center mat-typography" *ngIf="config">
@@ -19,13 +19,13 @@
           <p>{{card.text}}</p>
           <h1>Price: <strong>${{card.price}}</strong></h1>
           <div>
-            <button md-raised-button color="primary" (click)="openDialog(card.name, card.id)">Book</button>
+            <button mat-raised-button color="primary" (click)="openDialog(card.name, card.id)">Book</button>
           </div>
         </div>
       </div>
       <h1 class="card-name">{{card.name}}</h1>
       <div class="center-buttons">
-        <a md-button color="accent" routerLink="{{card.id}}">MORE</a>
+        <a mat-button color="accent" routerLink="{{card.id}}">MORE</a>
       </div>
     </div>
   </div>

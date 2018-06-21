@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { PlaceConfigService } from "../place-config/place-config.service";
 import { PlaceConfig } from "../place-config/place-config";
 import { ActivatedRoute } from "@angular/router";
-import { MdDialog } from "@angular/material";
+import { MatDialog } from "@angular/material";
 import { BookDialogComponent } from "../book-dialog/book-dialog.component";
 
 @Component({
@@ -15,7 +15,7 @@ export class PlacesComponent implements OnInit {
   constructor(
     private placeConfig: PlaceConfigService,
     private route: ActivatedRoute,
-    private dialog: MdDialog
+    private dialog: MatDialog
   ) { }
 
   @HostListener("window:scroll", [])

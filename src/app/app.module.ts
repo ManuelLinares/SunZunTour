@@ -10,18 +10,18 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PlacesComponent } from './places/places.component';
 import { SwiperModule } from 'angular2-useful-swiper';
 import {
-  MdToolbarModule,
-  MdButtonModule,
-  MdCardModule,
-  MdMenuModule,
-  MdIconModule,
-  MdDialogModule,
-  MdDialog,
-  MdInputModule,
-  MdFormFieldModule,
-  MdDatepickerModule,
-  MdNativeDateModule
+  MatDialog,
+  MatNativeDateModule
 } from '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { TripComponent } from './trip/trip.component';
 import { PlaceConfigService } from './place-config/place-config.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -48,24 +48,24 @@ import { TextLocaleService } from "./text-locale/text-locale.service";
     AppRoutingModule,
     BrowserAnimationsModule,
     SwiperModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdCardModule,
-    MdMenuModule,
-    MdIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
     HttpModule,
-    MdDialogModule,
-    MdInputModule,
-    MdFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MdDatepickerModule,
-    MdNativeDateModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     PlaceConfigService,
     TripConfigService,
-    MdDialog,
+    MatDialog,
     TextLocaleService
   ],
   bootstrap: [AppComponent]

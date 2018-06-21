@@ -1,33 +1,33 @@
-<h2 md-dialog-title>Book trip <strong>{{data.name}}</strong></h2>
+<h2 mat-dialog-title>Book trip <strong>{{data.name}}</strong></h2>
 <form [formGroup]="bookForm">
-  <md-dialog-content>
-    <md-form-field color="accent" class="field-full-width">
-      <input mdInput placeholder="Name" required formControlName="name">
-      <md-error *ngIf="name.hasError('required')">
+  <mat-dialog-content>
+    <mat-form-field color="accent" class="field-full-width">
+      <input matInput placeholder="Name" required formControlName="name">
+      <mat-error *ngIf="name.hasError('required')">
         Name is <strong>required</strong>
-      </md-error>
-    </md-form-field>
-    <md-form-field color="accent" class="field-full-width">
-      <input mdInput placeholder="Email" required type="email" formControlName="email">
-      <md-error *ngIf="email.hasError('pattern')">
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent" class="field-full-width">
+      <input matInput placeholder="Email" required type="email" formControlName="email">
+      <mat-error *ngIf="email.hasError('pattern')">
         Please enter a valid email address
-      </md-error>
-      <md-error *ngIf="email.hasError('required')">
+      </mat-error>
+      <mat-error *ngIf="email.hasError('required')">
         Email is <strong>required</strong>
-      </md-error>
-    </md-form-field>
-    <md-form-field color="accent" class="field-full-width">
-      <input mdInput [mdDatepicker]="picker" required placeholder="Choose a date" [max]="maxDate" [min]="minDate" formControlName="datePicker"
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent" class="field-full-width">
+      <input matInput [matDatepicker]="picker" required placeholder="Choose a date" [max]="maxDate" [min]="minDate" formControlName="datePicker"
         [(ngModel)]="dateValue">
-      <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-      <md-datepicker #picker></md-datepicker>
-      <md-error *ngIf="datePicker.hasError('required')">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="datePicker.hasError('required')">
         Date is <strong>required</strong>
-      </md-error>
-    </md-form-field>
-  </md-dialog-content>
-  <md-dialog-actions class="buttons-left">
-    <button md-button md-dialog-close>Cancel</button>
-    <button md-button type="submit" [disabled]="bookForm.invalid">Book</button>
-  </md-dialog-actions>
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions class="buttons-left">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit" [disabled]="bookForm.invalid">Book</button>
+  </mat-dialog-actions>
 </form>
