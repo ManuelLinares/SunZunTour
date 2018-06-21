@@ -1,8 +1,8 @@
 <md-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed, 'mat-elevation-z1': navIsFixed}" class="app-nav">
   <md-menu #appMenu="mdMenu">
-    <button md-menu-item routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }"> Viñales </button>
-    <button md-menu-item routerLink="/varadero" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }"> Varadero </button>
-    <button md-menu-item routerLink="/zapata-peninsula" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }"> Zapata Peninsula </button>
+    <button md-menu-item routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Viñales</button>
+    <button md-menu-item routerLink="/varadero" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Varadero</button>
+    <button md-menu-item routerLink="/zapata-peninsula" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">{{'zapata-peninsula' | translate}}</button>
   </md-menu>
   <a md-button routerLink="/">
     <img src="assets/logo.png" class="logo-img" [ngClass]="{'logo-img-small': navIsFixed}">
@@ -13,7 +13,7 @@
   </button>
   <a md-button routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Viñales</a>
   <a md-button routerLink="/varadero" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Varadero</a>
-  <a md-button routerLink="/zapata-peninsula" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Zapata Peninsula</a>
+  <a md-button routerLink="/zapata-peninsula" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">{{'zapata-peninsula' | translate}}</a>
 </md-toolbar>
 <router-outlet></router-outlet>
 <footer class="app-footer mat-typography">

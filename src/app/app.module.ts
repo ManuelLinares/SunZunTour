@@ -27,6 +27,8 @@ import { PlaceConfigService } from './place-config/place-config.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TripConfigService } from "./trip-config/trip-config.service";
 import { BookDialogComponent } from './book-dialog/book-dialog.component';
+import { TranslatePipe } from './translate-pipe/translate.pipe';
+import { TextLocaleService } from "./text-locale/text-locale.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { BookDialogComponent } from './book-dialog/book-dialog.component';
     PlacesComponent,
     TripComponent,
     PageNotFoundComponent,
-    BookDialogComponent
+    BookDialogComponent,
+    TranslatePipe
   ],
   entryComponents: [
     BookDialogComponent
@@ -62,7 +65,8 @@ import { BookDialogComponent } from './book-dialog/book-dialog.component';
   providers: [
     PlaceConfigService,
     TripConfigService,
-    MdDialog
+    MdDialog,
+    TextLocaleService
   ],
   bootstrap: [AppComponent]
 })
