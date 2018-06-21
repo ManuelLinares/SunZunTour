@@ -13,6 +13,8 @@ import { TripComponent } from './trip/trip.component';
 import { PlaceConfigService } from './place-config/place-config.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PlaceConfigResolverService } from './place-config-resolver/place-config-resolver.service';
+import { TripConfigService } from "./trip-config/trip-config.service";
+import { TripConfigResolverService } from './trip-config-resolver/trip-config-resolver.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,10 @@ import { PlaceConfigResolverService } from './place-config-resolver/place-config
     MdIconModule,
     HttpModule
   ],
-  providers: [PlaceConfigService, PlaceConfigResolverService],
+  providers: [
+    PlaceConfigService,
+    TripConfigService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

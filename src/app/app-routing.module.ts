@@ -5,6 +5,7 @@ import { PlacesComponent } from './places/places.component';
 import { TripComponent } from './trip/trip.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { PlaceConfigResolverService } from "./place-config-resolver/place-config-resolver.service";
+import { TripConfigResolverService } from "./trip-config-resolver/trip-config-resolver.service";
 
 const routes: Routes = [
   {
@@ -25,7 +26,10 @@ const routes: Routes = [
     }
   }, {
     path: ':place/:trip',
-    component: TripComponent
+    component: TripComponent,
+    resolve: {
+      config: TripConfigResolverService
+    }
   }, {
     path: '**',
     component: PageNotFoundComponent
@@ -35,6 +39,9 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [PlaceConfigResolverService]
+  providers: [
+    PlaceConfigResolverService,
+    TripConfigResolverService
+  ]
 })
 export class AppRoutingModule { }

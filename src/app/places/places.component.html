@@ -1,5 +1,4 @@
-<div class="top-image" *ngIf="config">
-  <img class="img-responsive" src="{{config.mainImgUrl}}">
+<div class="top-image" *ngIf="config" [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(' + config.mainImgUrl + ')'}" [style.background-position-y]="backgroundPositionY + 'px'">
   <div class="mat-typography header-info">
     <h1>Bla bla wonders of ...</h1>
     <a md-button class="recomended-trip-button" routerLink="/varadero/dupon">Recomended Trip</a>
@@ -10,14 +9,14 @@
 </div>
 <div class="container mat-typography" *ngIf="config">
   <div class="cards-container" *ngFor="let card of config.cards">
-    <md-card class="hover-card">
-      <md-card-header>
+    <md-card class="hover-card mat-elevation-z5">
+      <!-- <md-card-header>
         <md-card-title>{{card.name}}</md-card-title>
-      </md-card-header>
+      </md-card-header> -->
       <img md-card-image src="{{card.imgUrl}}" alt="Trip image">
-      <md-card-content>
+      <!-- <md-card-content>
         <p>{{card.text}}</p>
-      </md-card-content>
+      </md-card-content> -->
       <md-card-actions class="center-buttons">
         <a md-button routerLink="{{card.id}}">MORE</a>
       </md-card-actions>

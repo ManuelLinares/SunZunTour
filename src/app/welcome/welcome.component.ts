@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { polyfill } from "smoothscroll-polyfill";
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css'],
+  styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() { polyfill(); }
 
   ngOnInit() {
+  }
+
+  scrollDownCarousel(el){
+    window.scrollTo({
+      top: window.innerHeight - 64,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   config = {
@@ -20,9 +29,16 @@ export class WelcomeComponent implements OnInit {
     spaceBetween: 1,
     loop: true,
     slidesPerView: 1,
-    effect: 'fade',
+    effect: 'slide',
     autoplay: 5000,
     autoplayDisableOnInteraction: false,
-    speed: 1000
+    speed: 1000,
+    coverflow: {
+      rotate: 40,
+      stretch: 0,
+      depth: 80,
+      modifier: 1,
+      slideShadows: true
+    }
   };
 }

@@ -6,11 +6,14 @@
     z-index: 1000;
     position: fixed;
     justify-content: center;
-    align-items: center;
+    min-height: 64px;
+    height: 64px;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 .app-nav-fixed{
     background-color: transparent;
-    min-height: 80px;
+    
 }
 .nav-link-active{
     color: #939393;
@@ -20,6 +23,15 @@
     clear: both;
     float: left;
     display: none;
+}
+.fill-width{
+    flex: 1 1 auto;
+}
+@media screen and (max-width: 920px){
+    .app-nav{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 @media screen and (max-width: 600px){
     .hidden-links{

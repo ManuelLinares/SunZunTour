@@ -1,4 +1,4 @@
-<md-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed}" class="mat-elevation-z10 app-nav" color="primary">
+<md-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed, 'mat-elevation-z1': navIsFixed}" class="app-nav" color="warning">
   <md-menu #appMenu="mdMenu">
     <button md-menu-item routerLink="/vinales"> Viñales </button>
     <button md-menu-item routerLink="/varadero"> Varadero </button>
@@ -8,7 +8,7 @@
     <img src="assets/logo.png" height="26px">
     <strong>{{title}}</strong>
   </a>
-  <span class="show-mobile fill-width"></span>
+  <span class="fill-width"></span>
   <button md-icon-button [mdMenuTriggerFor]="appMenu" class="show-mobile">
     <md-icon>more_vert</md-icon>
   </button>

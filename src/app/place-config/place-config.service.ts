@@ -9,7 +9,7 @@ export class PlaceConfigService {
   constructor(private http: Http) { }
 
   getPlace(place: string): Promise<PlaceConfig> {
-    return this.http.get('assets/places.json')
+    return this.http.get('assets/config/places.json')
       .toPromise()
       .then(res => res.json() as PlaceConfig[])
       .then((places: PlaceConfig[]) => places.find(value => value.id === place));

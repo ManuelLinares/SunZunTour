@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TripConfigService } from "../trip-config/trip-config.service";
+import { TripConfig, SectionConfig } from "../trip-config/trip-config";
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-trip',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private tripConfig: TripConfigService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.data
+      .subscribe((data: { config: TripConfig }) => {
+        this.config = data.config;
+      });
   }
 
+  config: TripConfig;
+  
 }

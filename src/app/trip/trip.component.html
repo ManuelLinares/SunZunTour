@@ -1,33 +1,23 @@
-<div style="margin-bottom: 20px;">
-  <img class="img-responsive" src="assets/car2.jpg">
+<div class="top-image"  *ngIf="config" [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(' + config.mainImgUrl + ')'}">
+  <div class="mat-typography header-info">
+    <h1 class="price-tag">Only for $9.99</h1>
+  </div>
 </div>
-<div class="container text-center mat-typography">
-  <h1>Discover the wonders of ...</h1>
+<div class="container text-center mat-typography" *ngIf="config">
+  <h1>{{config.mainText}}</h1>
 </div>
-<div class="container mat-typography">
-  <div class="container-row">
-    <div class="container-col-6" style="text-align: end;">
-      <h1>See the ancient craft of tabaco making</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="container mat-typography"  *ngIf="config">
+  <div class="container-row" *ngFor="let prop of config.prop; let even = even; let odd = odd">
+    <div class="container-col container-text text-left" *ngIf="even">
+      <h1>{{prop.bigText}}</h1>
+      <p>{{prop.smallText}}</p>
     </div>
-    <div class="container-col-6">
-      <img class="img-responsive" src="assets/side.jpg">
+    <div class="container-col">
+      <img class="img-responsive" src="{{prop.imgUrl}}">
+    </div>
+    <div class="container-col container-text text-right" *ngIf="odd">
+      <h1>{{prop.bigText}}</h1>
+      <p>{{prop.smallText}}</p>
     </div>
   </div>
-  <div class="container-row">
-    <div class="container-col-6">
-      <img class="img-responsive" src="assets/side.jpg">
-    </div>
-    <div class="container-col-6" style="text-align: end;">
-      <h1>See the ancient craft of tabaco making</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-  </div>
-  
 </div>

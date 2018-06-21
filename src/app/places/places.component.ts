@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { PlaceConfigService } from "../place-config/place-config.service";
 import { PlaceConfig, CardConfig } from "../place-config/place-config";
 import { ActivatedRoute, ParamMap } from "@angular/router";
@@ -16,19 +16,22 @@ export class PlacesComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-   /* ngOnInit() {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.placeConfig.getPlace(params.get('place')))
-      .subscribe(config => this.config = config);
-  }  */
-  
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    //let number = this.document.body.scrollTop;
+    let number = window.scrollY;
+    this.backgroundPositionY = -number / 2;
+  }
+
   ngOnInit() {
     this.route.data
-     .subscribe((data: {config: PlaceConfig}) => {
-      this.config = data.config;
-     });
+      .subscribe((data: { config: PlaceConfig }) => {
+        this.config = data.config;
+      });
   }
 
   config: PlaceConfig;
+
+  backgroundPositionY: number;
 
 }

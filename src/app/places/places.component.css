@@ -1,6 +1,12 @@
 .top-image{
     margin-bottom: 20px;
     position: relative;
+    height: 85vh;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .img-responsive{
     height: auto;
@@ -13,6 +19,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 1200px;
+    position: relative;
 }
 .text-center{
     text-align: center;
@@ -27,9 +34,13 @@
 .hover-card:hover{
     box-shadow: 0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12);
 }
+.hover-card > img{
+    margin-bottom: 0;
+}
 .center-buttons{
     justify-content: center;
     display: flex;
+    padding-top: 0;
 }
 .header-info{
     position: absolute;
@@ -44,6 +55,15 @@
 .recomended-trip-button{
     border: 1px solid white;
     border-radius: 8px;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: initial;
+    animation-name: bounceInRight;
+}
+.recomended-trip-button:hover{
+    color: black;
+    background-color: white;
 }
 @media screen and (max-width: 1220px){
     .container{
