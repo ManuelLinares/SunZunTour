@@ -125,4 +125,7 @@ swiper{
         width: 100%;
         margin-bottom: 15px;
     }
+    .scroll-down{
+        bottom: 60px;
+    }
 }
