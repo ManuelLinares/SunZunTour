@@ -9,8 +9,36 @@
     background-size: cover;
 }
 .img-responsive{
-    height: auto;
     width: 100%;
+}
+.card-image{
+    width: 100%;
+    position: relative;
+    display: block;
+}
+.hover-info{
+    position: absolute;
+    text-align: center;
+    color: white;
+    left: 0;
+    top: 0;
+    width: calc(100% - 40px);
+    height: calc(100% - 51px);
+    padding: 15px;
+    margin: 5px;
+    padding-bottom: 21px;
+    z-index: 100;
+    background-color: rgba(0,0,0,.7);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.hover-info:hover{
+    opacity: 1;
 }
 .container{
     margin-top: 15px;
@@ -28,12 +56,12 @@
     width: 33.33333333333%;
     float: left;
     position: relative;
-    padding: 15px;
+    padding: 5px;
     box-sizing: border-box;
 }
-.hover-card:hover{
+/* .hover-card:hover{
     box-shadow: 0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12);
-}
+} */
 .hover-card > img{
     margin-bottom: 0;
 }
@@ -41,6 +69,8 @@
     justify-content: center;
     display: flex;
     padding-top: 0;
+    text-align: center;
+    padding-bottom: 5px;
 }
 .header-info{
     position: absolute;
@@ -64,6 +94,10 @@
 .recomended-trip-button:hover{
     color: black;
     background-color: white;
+}
+.card-name{
+    text-align: center;
+    margin-top: 15px;
 }
 @media screen and (max-width: 1220px){
     .container{

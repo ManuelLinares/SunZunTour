@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { TripConfigService } from "../trip-config/trip-config.service";
 import { TripConfig, SectionConfig } from "../trip-config/trip-config";
 import { ActivatedRoute, ParamMap } from "@angular/router";
@@ -16,6 +16,13 @@ export class TripComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    //let number = this.document.body.scrollTop;
+    let number = window.scrollY;
+    this.backgroundPositionY = -number / 2;
+  }
+
   ngOnInit() {
     this.route.data
       .subscribe((data: { config: TripConfig }) => {
@@ -24,5 +31,7 @@ export class TripComponent implements OnInit {
   }
 
   config: TripConfig;
+
+  backgroundPositionY: number;
   
 }

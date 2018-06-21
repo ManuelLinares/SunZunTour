@@ -1,4 +1,5 @@
-<div class="top-image" *ngIf="config" [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(' + config.mainImgUrl + ')'}" [style.background-position-y]="backgroundPositionY + 'px'">
+<div class="top-image" *ngIf="config" [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(' + config.mainImgUrl + ')'}"
+  [style.background-position-y]="backgroundPositionY + 'px'">
   <div class="mat-typography header-info">
     <h1>Bla bla wonders of ...</h1>
     <a md-button class="recomended-trip-button" routerLink="/varadero/dupon">Recomended Trip</a>
@@ -9,17 +10,35 @@
 </div>
 <div class="container mat-typography" *ngIf="config">
   <div class="cards-container" *ngFor="let card of config.cards">
+    <div class="mat-elevation-z5">
+      <div class="card-image">
+        <img src="{{card.imgUrl}}" alt="Trip image" class="img-responsive">
+        <div class="hover-info">
+          <h3>Price: <strong>$9.99</strong></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div>
+            <button md-raised-button color="primary">Book</button>
+          </div>
+        </div>
+      </div>
+      <h1 class="card-name">Trip Name</h1>
+      <div class="center-buttons">
+        <a md-button routerLink="{{card.id}}">MORE</a>
+      </div>
+    </div>
+    <!--  <div class="hover-info">
+      <h1>Trip Name</h1>
+      <h3>Price: <strong>$9.99</strong></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <button md-button>Book</button>
+    </div>
     <md-card class="hover-card mat-elevation-z5">
-      <!-- <md-card-header>
-        <md-card-title>{{card.name}}</md-card-title>
-      </md-card-header> -->
       <img md-card-image src="{{card.imgUrl}}" alt="Trip image">
-      <!-- <md-card-content>
-        <p>{{card.text}}</p>
-      </md-card-content> -->
       <md-card-actions class="center-buttons">
         <a md-button routerLink="{{card.id}}">MORE</a>
       </md-card-actions>
-    </md-card>
+    </md-card>   -->
   </div>
 </div>

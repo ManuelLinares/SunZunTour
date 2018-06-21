@@ -37,6 +37,7 @@
 }
 body{
     margin: 0;
+    background-color: #EEEEEE;
 }
 app-root{
     position: absolute;

@@ -18,6 +18,11 @@
 .nav-link-active{
     color: #939393;
 }
+.app-footer{
+    background-color: #AAAAAA;
+    border-top: 1px solid #999999;
+    margin-top: 15px;
+}
 .show-mobile{
     visibility: hidden;
     clear: both;
