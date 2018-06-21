@@ -1,8 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { TripConfigService } from "../trip-config/trip-config.service";
-import { TripConfig, SectionConfig } from "../trip-config/trip-config";
-import { ActivatedRoute, ParamMap } from "@angular/router";
-import 'rxjs/add/operator/switchMap';
+import { TripConfig } from "../trip-config/trip-config";
+import { ActivatedRoute, Router } from "@angular/router";
+import { MdDialog } from "@angular/material";
+import { BookDialogComponent } from "../book-dialog/book-dialog.component";
 
 @Component({
   selector: 'app-trip',
@@ -13,12 +14,13 @@ export class TripComponent implements OnInit {
 
   constructor(
     private tripConfig: TripConfigService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MdDialog,
+    private router: Router
   ) { }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-    //let number = this.document.body.scrollTop;
     let number = window.scrollY;
     this.backgroundPositionY = -number / 2;
   }
@@ -33,5 +35,18 @@ export class TripComponent implements OnInit {
   config: TripConfig;
 
   backgroundPositionY: number;
+
+  openDialog() {
+    let dialogRef = this.dialog.open(BookDialogComponent, {
+      data: {
+        name: this.config.name,
+        id: this.route.snapshot.paramMap.get('trip')
+      }
+    });
+  }
+
+  goToPlaces() {
+    this.router.navigate([this.route.snapshot.url[0].path]);
+  }
   
 }

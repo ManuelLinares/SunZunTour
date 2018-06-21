@@ -1,41 +1,38 @@
 <swiper #carousel [config]="config">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <!-- <img src="assets/car1.jpg" width="100%"> -->
       <div class="slide0-image slide-image"></div>
       <div class="slide-text">
         <a md-button class="recomended-trip-button mat-typography" routerLink="/vinales">Visit Viñales</a>
       </div>
     </div>
     <div class="swiper-slide">
-      <!-- <img src="assets/car2.jpg" width="100%"> -->
       <div class="slide1-image slide-image"></div>
       <div class="slide-text">
         <a md-button class="recomended-trip-button mat-typography" routerLink="/varadero">Visit Varadero</a>
       </div>
     </div>
     <div class="swiper-slide">
-      <!-- <img src="assets/car3.jpg" width="100%"> -->
       <div class="slide2-image slide-image"></div>
       <div class="slide-text">
-        <a md-button class="recomended-trip-button mat-typography" routerLink="/zapata-swamp">Visit Zapata's Swamp</a>
+        <a md-button class="recomended-trip-button mat-typography" routerLink="/zapata-peninsula">Visit Zapata Peninsula</a>
       </div>
     </div>
   </div>
-  <!-- Add Pagination -->
-  <div class="swiper-pagination"></div>
-  <!-- Add Arrows -->
+  <!-- <div class="swiper-pagination"></div> -->
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
-  <button md-fab class="scroll-down" (click)="scrollDownCarousel(startAdv)">
+  <button md-fab class="scroll-down" (click)="scrollDownCarousel()">
     <md-icon>arrow_downward</md-icon>
   </button>
 </swiper>
-
-
 <div class="mat-typography container">
   <div class="two-col-container">
     <h1>Maybe some text here</h1>
+    <div>
+      <button md-raised-button color="primary">More</button>
+      <button md-raised-button color="primary">Book Trip</button>
+    </div>
   </div>
   <div class="two-col-container">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -44,13 +41,15 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>
-
-<div class="parallax text-center mat-typography">
+<div class="parallax parallax-first mat-typography">
 </div>
-
 <div class="mat-typography container">
   <div class="two-col-container">
     <h1>Maybe some text here</h1>
+    <div>
+      <button md-raised-button color="primary">More</button>
+      <button md-raised-button color="primary">Book Trip</button>
+    </div>
   </div>
   <div class="two-col-container">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -59,17 +58,5 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>
-
-<div class="parallax text-center mat-typography" style="background-image: url('../../assets/car3.jpg');">
-</div>
-<div class="mat-typography container">
-  <div class="two-col-container">
-    <h1>Maybe some text here</h1>
-  </div>
-  <div class="two-col-container">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
+<div class="parallax parallax-second mat-typography">
 </div>

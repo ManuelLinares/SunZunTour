@@ -1,0 +1,33 @@
+<h2 md-dialog-title>Book trip <strong>{{data.name}}</strong></h2>
+<form [formGroup]="bookForm">
+  <md-dialog-content>
+    <md-form-field color="accent" class="field-full-width">
+      <input mdInput placeholder="Name" required formControlName="name">
+      <md-error *ngIf="name.hasError('required')">
+        Name is <strong>required</strong>
+      </md-error>
+    </md-form-field>
+    <md-form-field color="accent" class="field-full-width">
+      <input mdInput placeholder="Email" required type="email" formControlName="email">
+      <md-error *ngIf="email.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>
+      <md-error *ngIf="email.hasError('required')">
+        Email is <strong>required</strong>
+      </md-error>
+    </md-form-field>
+    <md-form-field color="accent" class="field-full-width">
+      <input mdInput [mdDatepicker]="picker" required placeholder="Choose a date" [max]="maxDate" [min]="minDate" formControlName="datePicker"
+        [(ngModel)]="dateValue">
+      <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+      <md-datepicker #picker></md-datepicker>
+      <md-error *ngIf="datePicker.hasError('required')">
+        Date is <strong>required</strong>
+      </md-error>
+    </md-form-field>
+  </md-dialog-content>
+  <md-dialog-actions class="buttons-left">
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-button type="submit" [disabled]="bookForm.invalid">Book</button>
+  </md-dialog-actions>
+</form>

@@ -2,7 +2,7 @@
   [style.background-position-y]="backgroundPositionY + 'px'">
   <div class="mat-typography header-info">
     <h1>Bla bla wonders of ...</h1>
-    <a md-button class="recomended-trip-button" routerLink="/varadero/dupon">Recomended Trip</a>
+    <a md-button class="recomended-trip-button" [routerLink]="[config.recomended]">Recomended Trip</a>
   </div>
 </div>
 <div class="container text-center mat-typography" *ngIf="config">
@@ -14,31 +14,17 @@
       <div class="card-image">
         <img src="{{card.imgUrl}}" alt="Trip image" class="img-responsive">
         <div class="hover-info">
-          <h3>Price: <strong>$9.99</strong></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>{{card.text}}</p>
+          <h1>Price: <strong>${{card.price}}</strong></h1>
           <div>
-            <button md-raised-button color="primary">Book</button>
+            <button md-raised-button color="primary" (click)="openDialog(card.name, card.id)">Book</button>
           </div>
         </div>
       </div>
-      <h1 class="card-name">Trip Name</h1>
+      <h1 class="card-name">{{card.name}}</h1>
       <div class="center-buttons">
-        <a md-button routerLink="{{card.id}}">MORE</a>
+        <a md-button color="accent" routerLink="{{card.id}}">MORE</a>
       </div>
     </div>
-    <!--  <div class="hover-info">
-      <h1>Trip Name</h1>
-      <h3>Price: <strong>$9.99</strong></h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <button md-button>Book</button>
-    </div>
-    <md-card class="hover-card mat-elevation-z5">
-      <img md-card-image src="{{card.imgUrl}}" alt="Trip image">
-      <md-card-actions class="center-buttons">
-        <a md-button routerLink="{{card.id}}">MORE</a>
-      </md-card-actions>
-    </md-card>   -->
   </div>
 </div>

@@ -1,12 +1,11 @@
-<md-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed, 'mat-elevation-z1': navIsFixed}" class="app-nav" color="warning">
+<md-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed, 'mat-elevation-z1': navIsFixed}" class="app-nav">
   <md-menu #appMenu="mdMenu">
-    <button md-menu-item routerLink="/vinales"> Viñales </button>
-    <button md-menu-item routerLink="/varadero"> Varadero </button>
-    <button md-menu-item routerLink="/zapata-swamp"> Zapata's Swamp </button>
+    <button md-menu-item routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }"> Viñales </button>
+    <button md-menu-item routerLink="/varadero" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }"> Varadero </button>
+    <button md-menu-item routerLink="/zapata-peninsula" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }"> Zapata Peninsula </button>
   </md-menu>
-  <a md-button routerLink="/home" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">
-    <img src="assets/logo.png" height="26px">
-    <strong>{{title}}</strong>
+  <a md-button routerLink="/">
+    <img src="assets/logo.png" class="logo-img" [ngClass]="{'logo-img-small': navIsFixed}">
   </a>
   <span class="fill-width"></span>
   <button md-icon-button [mdMenuTriggerFor]="appMenu" class="show-mobile">
@@ -14,9 +13,12 @@
   </button>
   <a md-button routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Viñales</a>
   <a md-button routerLink="/varadero" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Varadero</a>
-  <a md-button routerLink="/zapata-swamp" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Zapata's Swamp</a>
+  <a md-button routerLink="/zapata-peninsula" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="hidden-links">Zapata Peninsula</a>
 </md-toolbar>
 <router-outlet></router-outlet>
-<footer class="app-footer">
-  <h4>Copyright by Sun Zun Tour</h4>
+<footer class="app-footer mat-typography">
+  <h3>Copyright &copy; by </h3>
+  <a routerLink="/" class="footer-link">
+    <img src="assets/logo.png" class="footer-logo">
+  </a>
 </footer>

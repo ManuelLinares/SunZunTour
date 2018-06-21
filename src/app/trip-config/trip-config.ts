@@ -1,4 +1,5 @@
 export class TripConfig {
+    name: string;
     mainText: string;
     mainImgUrl;
     prop: SectionConfig[];

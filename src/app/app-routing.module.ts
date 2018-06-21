@@ -9,12 +9,8 @@ import { TripConfigResolverService } from "./trip-config-resolver/trip-config-re
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: WelcomeComponent
-  }, {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
+    component: WelcomeComponent
   }, {
     path: '404',
     component: PageNotFoundComponent

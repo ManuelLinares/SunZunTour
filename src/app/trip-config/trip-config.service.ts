@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TripConfig } from "./trip-config";
 import { Http } from "@angular/http";
-import 'rxjs/Rx';
 
 @Injectable()
 export class TripConfigService {

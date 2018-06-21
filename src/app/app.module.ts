@@ -2,19 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { HttpModule } from "@angular/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PlacesComponent } from './places/places.component';
 import { SwiperModule } from 'angular2-useful-swiper';
-import { MdToolbarModule, MdButtonModule, MdCardModule, MdMenuModule, MdIconModule } from '@angular/material';
+import {
+  MdToolbarModule,
+  MdButtonModule,
+  MdCardModule,
+  MdMenuModule,
+  MdIconModule,
+  MdDialogModule,
+  MdDialog,
+  MdInputModule,
+  MdFormFieldModule,
+  MdDatepickerModule,
+  MdNativeDateModule
+} from '@angular/material';
 import { TripComponent } from './trip/trip.component';
 import { PlaceConfigService } from './place-config/place-config.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PlaceConfigResolverService } from './place-config-resolver/place-config-resolver.service';
 import { TripConfigService } from "./trip-config/trip-config.service";
-import { TripConfigResolverService } from './trip-config-resolver/trip-config-resolver.service';
+import { BookDialogComponent } from './book-dialog/book-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +34,11 @@ import { TripConfigResolverService } from './trip-config-resolver/trip-config-re
     WelcomeComponent,
     PlacesComponent,
     TripComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BookDialogComponent
+  ],
+  entryComponents: [
+    BookDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,12 +50,20 @@ import { TripConfigResolverService } from './trip-config-resolver/trip-config-re
     MdCardModule,
     MdMenuModule,
     MdIconModule,
-    HttpModule
+    HttpModule,
+    MdDialogModule,
+    MdInputModule,
+    MdFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   providers: [
     PlaceConfigService,
-    TripConfigService
+    TripConfigService,
+    MdDialog
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

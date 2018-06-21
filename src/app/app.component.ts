@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router, NavigationStart } from "@angular/router";
+import { Router, NavigationEnd } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,10 @@ export class AppComponent implements OnInit{
 
   constructor(private router: Router) { };
 
-  title = 'SUN ZUN TOUR';
-
   public navIsFixed: boolean = false;
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-    //let number = this.document.body.scrollTop;
     let number = window.scrollY;
     if (number > 15) {
       this.navIsFixed = true;
@@ -26,8 +23,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.router.events.subscribe((event: NavigationStart) => {
-      //this.document.body.scrollTop = 0;
+    this.router.events.subscribe((event: NavigationEnd) => {
       window.scroll(window.scrollX, 0);
     });
   }

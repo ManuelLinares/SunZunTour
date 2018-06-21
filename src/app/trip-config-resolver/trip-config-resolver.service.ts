@@ -5,7 +5,7 @@ import { TripConfig } from "../trip-config/trip-config";
 import { DOCUMENT } from "@angular/platform-browser";
 
 @Injectable()
-export class TripConfigResolverService {
+export class TripConfigResolverService implements Resolve<TripConfig>{
 
   constructor(
     private tripConfig: TripConfigService,

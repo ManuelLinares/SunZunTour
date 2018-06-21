@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { polyfill } from "smoothscroll-polyfill";
 
 @Component({
@@ -6,16 +6,19 @@ import { polyfill } from "smoothscroll-polyfill";
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
 
-  constructor() { polyfill(); }
-
-  ngOnInit() {
+  constructor() {
+    polyfill();
   }
 
-  scrollDownCarousel(el){
+  scrollDownCarousel(){
+    let toolbarWidth = 64;
+    if (window.innerWidth <= 600) {
+      toolbarWidth = 56;
+    }
     window.scrollTo({
-      top: window.innerHeight - 64,
+      top: window.innerHeight - toolbarWidth,
       left: 0,
       behavior: 'smooth'
     });
@@ -32,13 +35,6 @@ export class WelcomeComponent implements OnInit {
     effect: 'slide',
     autoplay: 5000,
     autoplayDisableOnInteraction: false,
-    speed: 1000,
-    coverflow: {
-      rotate: 40,
-      stretch: 0,
-      depth: 80,
-      modifier: 1,
-      slideShadows: true
-    }
+    speed: 1000
   };
 }

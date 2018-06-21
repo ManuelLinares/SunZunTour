@@ -1,14 +1,3 @@
-.scroll-down{
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    z-index: 10;
-    opacity: 0.7;
-    margin-left: -28px;
-}
-.scroll-down:hover{
-    opacity: 1;
-}
 swiper{
     height: 100vh;
 }
@@ -21,44 +10,13 @@ swiper{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.slide0-image{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/vinales/header.jpg);
-}
-.slide1-image{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/varadero/header.jpg);
-}
-.slide2-image{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/zapata/header.jpg);
-}
-.parallax { 
-    /* The image used */
-    background-image: url("../../assets/car1.jpg");
-
-    /* Set a specific height */
-    height: 100vh; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
 .slide-text{
     position: absolute;
     z-index: 10;
-    bottom: 75px;
+    bottom: 50%;
     width: 100%;    
     display: flex;
     justify-content: center;
-}
-.swiper-pagination{
-    bottom: 50%;
 }
 .recomended-trip-button{
     border: 1px solid white;
@@ -79,21 +37,43 @@ swiper{
     color: black;
     background-color: white;
 }
-
- .img-responsive{
-    display: block;
-    height: auto;
-    width: 100%;
+/* .swiper-pagination{
+    bottom: 50%;
+} */ 
+.scroll-down{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    z-index: 10;
+    opacity: 0.5;
+    margin-left: -28px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+}
+.scroll-down:hover{
+    opacity: 1;
+    background-color: white;
+    color: black;
+}
+.slide0-image{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/vinales/header.jpg);
+}
+.slide1-image{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/varadero/header.jpg);
+}
+.slide2-image{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/zapata/header.jpg);
 }
 .container{
     padding-top: 15px;
     padding-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    padding-right: calc((100% - 1200px) / 2);
+    padding-left: calc((100% - 1200px) / 2);
     display: flex;
     position: relative;
     box-sizing: border-box;
+    border-top: 4px solid gray;
 }
 .two-col-container{
     width: 50%;
@@ -102,44 +82,47 @@ swiper{
     float: left;
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .two-col-container>h1{
     text-align: center;
 }
+.parallax { 
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-first{
+    background-image: url("../../assets/car1.jpg");
+}
+.parallax-second{
+    background-image: url('../../assets/car3.jpg');
+}
 @media screen and (max-width: 1220px){
     .container{
-        width: 900px;
+        padding-right: calc((100% - 900px) / 2);
+        padding-left: calc((100% - 900px) / 2);
     }
 }
 @media screen and (max-width: 920px){
     .container{
-        width: 600px;
+        padding-right: calc((100% - 600px) / 2);
+        padding-left: calc((100% - 600px) / 2);
     }
 }
 @media screen and (max-width: 600px){
     .container{
-        width: 98%;
+        width: 100%;
+        padding-right: 1%;
+        padding-left: 1%;
+        flex-direction: column;
     }
     .two-col-container{
         width: 100%;
+        margin-bottom: 15px;
     }
-}
-.text-center{
-    text-align: center;
-}
-.center-block{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-.container-row{
-    box-sizing: border-box;
-    display: block;
-}
-.container-col-6{
-    width: 50%;
-    float: left;
-    position: relative;
-    padding: 15px;
-    box-sizing: border-box;
 }

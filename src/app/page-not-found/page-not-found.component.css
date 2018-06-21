@@ -1,7 +1,12 @@
- .img-responsive{
-    display: block;
-    height: auto;
-    width: 100%;
+.top-image{
+    margin-bottom: 20px;
+    position: relative;
+    height: 50vh;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: -50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .container{
     margin-left: 10%;
@@ -11,19 +16,3 @@
 .text-center{
     text-align: center;
 }
-.center-block{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-.container-row{
-    box-sizing: border-box;
-    display: block;
-}
-.container-col-6{
-    width: 50%;
-    float: left;
-    position: relative;
-    padding: 15px;
-    box-sizing: border-box;
-} 

@@ -1,3 +1,6 @@
+.app-nav-fixed{
+    background-color: transparent;
+}
 .app-nav{
     transition-property: all;
     transition-duration: 0.8s;
@@ -6,22 +9,24 @@
     z-index: 1000;
     position: fixed;
     justify-content: center;
-    min-height: 64px;
-    height: 64px;
     padding-left: 8%;
     padding-right: 8%;
-}
-.app-nav-fixed{
-    background-color: transparent;
-    
 }
 .nav-link-active{
     color: #939393;
 }
-.app-footer{
-    background-color: #AAAAAA;
-    border-top: 1px solid #999999;
-    margin-top: 15px;
+.logo-img{
+    transition-property: all;
+    transition-duration: 0.8s;
+    transition-timing-function: ease;
+    transition-delay: initial;
+    height: 54px;
+}
+.logo-img-small{
+    height: 45px;
+}
+.fill-width{
+    flex: 1 1 auto;
 }
 .show-mobile{
     visibility: hidden;
@@ -29,8 +34,34 @@
     float: left;
     display: none;
 }
-.fill-width{
-    flex: 1 1 auto;
+.app-footer{
+     justify-content: center;
+     align-content: center;
+     display: flex;
+     font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+     color: white;
+     background-color: #212121;
+     box-sizing: border-box;
+     width: 100%;
+     min-height: 40px;
+}
+.app-footer>h3{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.footer-link{
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.footer-logo{
+    height: 30px;
 }
 @media screen and (max-width: 920px){
     .app-nav{
@@ -51,10 +82,7 @@
         float: none;
         display: block;
     }
-    .fill-width{
-        flex: 1 1 auto;
-    }
-    .app-nav{
-        align-items: unset;
+    .logo-img-small{
+        height: 40px;
     }
 }
