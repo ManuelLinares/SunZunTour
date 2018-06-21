@@ -21,8 +21,10 @@ export class TripComponent implements OnInit {
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-    let number = window.scrollY;
-    this.backgroundPositionY = -number / 2;
+    if (window.innerWidth > 600) {
+      let number = window.scrollY;
+      this.backgroundPositionY = -number / 2;
+    }
   }
 
   ngOnInit() {

@@ -90,7 +90,7 @@ swiper{
     text-align: center;
 }
 .parallax { 
-    height: 100vh; 
+    height: 75vh; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -127,5 +127,8 @@ swiper{
     }
     .scroll-down{
         bottom: 60px;
+    }
+    .parallax{
+        background-attachment: scroll;
     }
 }
