@@ -1,0 +1,64 @@
+.app-nav{
+    background-color: transparent;
+    border-width: 0;
+    margin-bottom: 0;
+    height: 65px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: initial;
+    box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
+}
+.app-nav-fixed{
+    background-color: dodgerblue;
+    height: 50px;
+}
+.nav-inner{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-header{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+.app-logo{
+    padding: 0;
+    padding-left: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.app-logo:focus{
+    color: white;
+}
+.app-logo > img{
+    padding-right: 15px;
+}
+.app-logo > strong{
+    margin: 0;
+}
+.nav-center{
+    margin: 0;
+    height: 100%;
+}
+.navbar-nav > li{
+    height: 100%;
+}
+.navbar-nav > li > a:focus{
+    color: white;
+}
+.navbar-nav > li > a:hover{
+    color: #5e5e5e;
+}
+.navbar-nav > li > a{
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+}
