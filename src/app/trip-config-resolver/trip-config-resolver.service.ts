@@ -1,14 +1,14 @@
 import { Injectable, Inject } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, NavigationExtras } from "@angular/router";
-import { TripConfigService } from "../trip-config/trip-config.service";
-import { TripConfig } from "../trip-config/trip-config";
+import { PageConfigService } from "../page-config/page-config.service";
+import { TripConfig } from "../page-config/trip-config";
 import { DOCUMENT } from "@angular/platform-browser";
 
 @Injectable()
 export class TripConfigResolverService implements Resolve<TripConfig>{
 
   constructor(
-    private tripConfig: TripConfigService,
+    private tripConfig: PageConfigService,
     private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) { }

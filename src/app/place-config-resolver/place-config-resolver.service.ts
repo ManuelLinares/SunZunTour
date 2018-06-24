@@ -1,14 +1,14 @@
 import { Injectable, Inject } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, NavigationExtras } from "@angular/router";
-import { PlaceConfigService } from "../place-config/place-config.service";
-import { PlaceConfig } from "../place-config/place-config";
+import { PageConfigService } from "../page-config/page-config.service";
+import { PlaceConfig } from "../page-config/place-config";
 import { DOCUMENT } from "@angular/platform-browser";
 
 @Injectable()
 export class PlaceConfigResolverService implements Resolve<PlaceConfig>{
 
   constructor(
-    private placeConfig: PlaceConfigService,
+    private placeConfig: PageConfigService,
     private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) { }

@@ -23,9 +23,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { TripComponent } from './trip/trip.component';
-import { PlaceConfigService } from './place-config/place-config.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { TripConfigService } from "./trip-config/trip-config.service";
+import { PageConfigService } from "./page-config/page-config.service";
 import { BookDialogComponent } from './book-dialog/book-dialog.component';
 import { TranslatePipe } from './translate-pipe/translate.pipe';
 import { TextLocaleService } from "./text-locale/text-locale.service";
@@ -63,8 +62,7 @@ import { TextLocaleService } from "./text-locale/text-locale.service";
     MatNativeDateModule
   ],
   providers: [
-    PlaceConfigService,
-    TripConfigService,
+    PageConfigService,
     MatDialog,
     TextLocaleService
   ],

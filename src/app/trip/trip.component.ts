@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { TripConfigService } from "../trip-config/trip-config.service";
-import { TripConfig } from "../trip-config/trip-config";
+import { TripConfig } from "../page-config/trip-config";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { BookDialogComponent } from "../book-dialog/book-dialog.component";
@@ -13,7 +12,6 @@ import { BookDialogComponent } from "../book-dialog/book-dialog.component";
 export class TripComponent implements OnInit {
 
   constructor(
-    private tripConfig: TripConfigService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private router: Router
