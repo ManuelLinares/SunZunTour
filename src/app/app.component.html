@@ -1,3 +1,4 @@
+<mat-progress-bar class="loading-bar" mode="indeterminate" *ngIf="loading | async"></mat-progress-bar>
 <mat-toolbar [ngClass]="{'app-nav-fixed': !navIsFixed, 'mat-elevation-z1': navIsFixed}" class="app-nav">
   <mat-menu #appMenu="matMenu">
     <button mat-menu-item routerLink="/vinales" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Viñales</button>

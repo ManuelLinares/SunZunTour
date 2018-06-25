@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
+import { PageConfigService } from "./page-config/page-config.service";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +10,14 @@ import { Router, NavigationEnd } from "@angular/router";
 })
 export class AppComponent implements OnInit{
 
-  constructor(private router: Router) { };
+  constructor(
+    private router: Router,
+    private pageLoader: PageConfigService
+  ) { };
 
   public navIsFixed: boolean = false;
+
+  public loading: Observable<boolean>;
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -28,5 +35,6 @@ export class AppComponent implements OnInit{
         window.scroll(window.scrollX, 0);
       }
     });
+    this.loading = this.pageLoader.getLoadingPage();
   }
 }
