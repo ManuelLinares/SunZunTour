@@ -34,7 +34,18 @@ export class PageConfigService {
 
   getTrip(place: string, trip: string): Observable<TripConfig> {
     return this.http.get('assets/config/'  + this.textLoc.getLang() + '/' + place + '/' + trip + '.json')
-      .map(res => res.json() as TripConfig);
+      .map(res => res.json() as TripConfig)
+      .flatMap((data: TripConfig) => {
+        let imgUrls = data.prop.map(val => val.imgUrl);
+        imgUrls.push(data.mainImgUrl);
+        return Observable.forkJoin(imgUrls.map(val => this.http.get(<string>val, {responseType: ResponseContentType.Blob})))
+          .map(res => {
+            let imgs = res.map(val => this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(val.blob())));
+            data.mainImgUrl = imgs.pop();
+            imgs.map((val, index) => data.prop[index].imgUrl = val);
+            return data;
+          })
+      })
   }
 
 }

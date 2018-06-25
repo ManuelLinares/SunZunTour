@@ -1,6 +1,6 @@
 <div class="top-image-container" *ngIf="config">
   <div class="top-image">
-    <img src="{{config.mainImgUrl}}" [style.bottom]="backgroundPositionY + 'px'"/>
+    <img [src]="config.mainImgUrl" [style.bottom]="backgroundPositionY + 'px'"/>
   </div>
   <div class="mat-typography header-info">
     <h1 class="price-tag">Only for $9.99</h1>
@@ -18,7 +18,7 @@
       <p>{{prop.smallText}}</p>
     </div>
     <div class="container-col-nopad">
-      <img class="img-responsive border-img" src="{{prop.imgUrl}}" [ngClass]="{'border-left': odd, 'border-right': even}">
+      <img class="img-responsive border-img" [src]="prop.imgUrl" [ngClass]="{'border-left': odd, 'border-right': even}">
     </div>
     <div class="container-col-nopad container-text text-right" *ngIf="odd">
       <h1>{{prop.bigText}}</h1>
