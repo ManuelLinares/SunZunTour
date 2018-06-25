@@ -21,7 +21,6 @@
       "styles": [
         "theme.scss",
         "styles.css",
-        "roboto.css",
         "../node_modules/swiper/dist/css/swiper.min.css"
       ],
       "scripts": [
