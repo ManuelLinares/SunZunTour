@@ -4,6 +4,7 @@ import { TextLocaleService } from "../text-locale/text-locale.service";
 import { PlaceConfig } from "./place-config";
 import { TripConfig } from "./trip-config";
 import 'rxjs/Rx';
+import { Observable } from "rxjs";
 
 @Injectable()
 export class PageConfigService {
@@ -13,17 +14,15 @@ export class PageConfigService {
     private textLoc: TextLocaleService
   ) { }
 
-  getPlace(place: string): Promise<PlaceConfig> {
+  getPlace(place: string): Observable<PlaceConfig> {
     return this.http.get('assets/config/' + this.textLoc.getLang() + '/places.json')
-      .toPromise()
-      .then(res => res.json() as PlaceConfig[])
-      .then((places: PlaceConfig[]) => places.find(value => value.id === place));
+      .map(res => res.json() as PlaceConfig[])
+      .map((places: PlaceConfig[]) => places.find(value => value.id === place));
   }
 
-  getTrip(place: string, trip: string): Promise<TripConfig> {
+  getTrip(place: string, trip: string): Observable<TripConfig> {
     return this.http.get('assets/config/'  + this.textLoc.getLang() + '/' + place + '/' + trip + '.json')
-      .toPromise()
-      .then(res => res.json() as TripConfig);
+      .map(res => res.json() as TripConfig);
   }
 
 }

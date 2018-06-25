@@ -3,6 +3,7 @@ import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, Navigatio
 import { PageConfigService } from "../page-config/page-config.service";
 import { PlaceConfig } from "../page-config/place-config";
 import { DOCUMENT } from "@angular/platform-browser";
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class PlaceConfigResolverService implements Resolve<PlaceConfig>{
@@ -13,10 +14,10 @@ export class PlaceConfigResolverService implements Resolve<PlaceConfig>{
     @Inject(DOCUMENT) private document: Document
   ) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<PlaceConfig> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     let place = route.paramMap.get('place');
     return this.placeConfig.getPlace(place)
-      .then(config => {
+      .map(config => {
         if (config) {
           return config;
         } else {
@@ -24,7 +25,7 @@ export class PlaceConfigResolverService implements Resolve<PlaceConfig>{
             queryParams: { badUrl: this.document.URL }
           }
           this.router.navigate(['/404'], nav);
-          return null;
+          return Observable.empty();
         }
       });
   }
