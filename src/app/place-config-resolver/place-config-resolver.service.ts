@@ -17,17 +17,13 @@ export class PlaceConfigResolverService implements Resolve<PlaceConfig>{
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     let place = route.paramMap.get('place');
     return this.placeConfig.getPlace(place)
-      .map(config => {
-        if (config) {
-          return config;
-        } else {
-          let nav: NavigationExtras = {
-            queryParams: { badUrl: this.document.URL }
-          }
-          this.router.navigate(['/404'], nav);
-          return Observable.empty();
-        }
-      });
+    .catch(reason => {
+      let nav: NavigationExtras = {
+        queryParams: { badUrl: this.document.URL }
+      }
+      this.router.navigate(['/404'], nav);
+      return Observable.empty();
+    });
   }
 
 }

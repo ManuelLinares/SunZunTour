@@ -15,9 +15,8 @@ export class PageConfigService {
   ) { }
 
   getPlace(place: string): Observable<PlaceConfig> {
-    return this.http.get('assets/config/' + this.textLoc.getLang() + '/places.json')
-      .map(res => res.json() as PlaceConfig[])
-      .map((places: PlaceConfig[]) => places.find(value => value.id === place));
+    return this.http.get('assets/config/' + this.textLoc.getLang() + '/' + place + '.json')
+      .map(res => res.json() as PlaceConfig);
   }
 
   getTrip(place: string, trip: string): Observable<TripConfig> {
