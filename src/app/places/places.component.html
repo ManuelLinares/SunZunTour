@@ -1,6 +1,6 @@
 <div class="top-image-container" *ngIf="config">
   <div class="top-image">
-    <img src="{{config.mainImgUrl}}" [style.bottom]="backgroundPositionY + 'px'"/>
+    <img [src]="config.mainImgUrl" [style.bottom]="backgroundPositionY + 'px'"/>
   </div>
   <div class="mat-typography header-info">
     <h1>Bla bla wonders of ...</h1>
@@ -14,7 +14,7 @@
   <div class="cards-container" *ngFor="let card of config.cards">
     <div class="mat-elevation-z5">
       <div class="card-image">
-        <img src="{{card.imgUrl}}" alt="Trip image" class="img-responsive">
+        <img [src]="card.imgUrl" alt="Trip image" class="img-responsive">
         <div class="hover-info">
           <p>{{card.text}}</p>
           <h1>Price: <strong>${{card.price}}</strong></h1>
