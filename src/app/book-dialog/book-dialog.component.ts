@@ -32,6 +32,7 @@ export class BookDialogComponent implements OnInit {
       'comments': new FormControl('')
     });
     this.totalPrice = '0 USD';
+    this.pcLayout = window.innerWidth > 920;
   }
 
   bookForm: FormGroup;
@@ -68,6 +69,8 @@ export class BookDialogComponent implements OnInit {
   }
 
   totalPrice: string;
+
+  pcLayout: boolean;
 
   public onSubmit() {
     let bookData = {
