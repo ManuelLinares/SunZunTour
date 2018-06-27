@@ -19,7 +19,7 @@
           <p>{{card.text}}</p>
           <h1>Price: <strong>${{card.price}}</strong></h1>
           <div>
-            <button mat-raised-button color="primary" (click)="openDialog(card.name, card.id)">Book</button>
+            <button mat-raised-button color="primary" (click)="openDialog(card.name, card.id, card.price)">Book</button>
           </div>
         </div>
       </div>

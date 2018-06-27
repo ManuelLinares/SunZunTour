@@ -22,7 +22,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatProgressBarModule } from "@angular/material/progress-bar";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { TripComponent } from './trip/trip.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageConfigService } from "./page-config/page-config.service";
@@ -61,7 +62,8 @@ import { TextLocaleService } from "./text-locale/text-locale.service";
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [
     PageConfigService,

@@ -40,7 +40,8 @@ export class TripComponent implements OnInit {
     let dialogRef = this.dialog.open(BookDialogComponent, {
       data: {
         name: this.config.name,
-        id: this.route.snapshot.paramMap.get('trip')
+        id: this.route.snapshot.paramMap.get('trip'),
+        price: this.config.price
       }
     });
   }

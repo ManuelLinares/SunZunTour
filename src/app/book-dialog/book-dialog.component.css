@@ -4,3 +4,6 @@
 .buttons-left{
     justify-content: flex-end;
 }
+.dialog-width{
+    width: 582px;
+}

@@ -35,11 +35,12 @@ export class PlacesComponent implements OnInit {
 
   backgroundPositionY: number;
 
-  openDialog(tripName: string, tripId: string) {
+  openDialog(tripName: string, tripId: string, tripPrice: number) {
     let dialogRef = this.dialog.open(BookDialogComponent, {
       data: {
         name: tripName,
-        id: tripId
+        id: tripId,
+        price: tripPrice
       }
     });
   }

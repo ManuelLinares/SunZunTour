@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { DateAdapter, MAT_DIALOG_DATA } from "@angular/material";
+import { DateAdapter, MAT_DIALOG_DATA, MatSnackBar, MatSnackBarConfig, MatDialogRef } from "@angular/material";
+import { Http } from '@angular/http';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const PERSONS_REGEX = /^[0-9]{1,2}$/;
 
 @Component({
   selector: 'app-book-dialog',
@@ -12,7 +14,10 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
 export class BookDialogComponent implements OnInit {
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private http: Http,
+    public snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<BookDialogComponent>
   ) { }
 
   ngOnInit() {
@@ -22,8 +27,11 @@ export class BookDialogComponent implements OnInit {
     this.bookForm = new FormGroup({
       'name': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]),
-      'datePicker': new FormControl(new Date(), [Validators.required])
+      'datePicker': new FormControl(new Date(), [Validators.required]),
+      'persons': new FormControl('', [Validators.required, Validators.min(1), Validators.pattern(PERSONS_REGEX)]),
+      'comments': new FormControl('')
     });
+    this.totalPrice = '0 USD';
   }
 
   bookForm: FormGroup;
@@ -43,7 +51,45 @@ export class BookDialogComponent implements OnInit {
   public get datePicker() {
     return this.bookForm.get('datePicker');
   }
+  
+  public get persons() {
+    return this.bookForm.get('persons');
+  }
+  
+  public get comments() {
+    return this.bookForm.get('comments');
+  }
+  
 
   dateValue: Date;
+
+  public updatePrice() {
+    this.totalPrice = this.data.price * Number(this.persons.value) + ' USD';
+  }
+
+  totalPrice: string;
+
+  public onSubmit() {
+    let bookData = {
+      name: this.name.value,
+      email: this.email.value,
+      datePicker: this.datePicker.value,
+      people: this.persons.value,
+      coments: this.comments.value,
+      tripName: this.data.name,
+      tripId: this.data.id,
+      tripPrice: this.data.price,
+      finalPrice: this.data.price * Number(this.persons.value)
+    }
+    this.http.post('http://localhost:3000/api', bookData)
+    .subscribe(res => {
+      if (res.status == 200) {
+        this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '', {duration: 5000});
+        this.dialogRef.close();
+      } else {
+        this.snackBar.open('An error has occur with our server. Please try again later.', '', {duration: 3000});
+      }
+    });
+  }
 
 }
