@@ -30,8 +30,8 @@
   <div class="two-col-container">
     <h1>Maybe some text here</h1>
     <div>
-      <button mat-raised-button color="primary">More</button>
-      <button mat-raised-button color="primary">Book Trip</button>
+      <a mat-raised-button color="primary" routerLink="varadero/dupon">More</a>
+      <button mat-raised-button color="primary" (click)="openDialog('Dupon', 'dupon', 25)">Book Trip</button>
     </div>
   </div>
   <div class="two-col-container">
@@ -47,8 +47,8 @@
   <div class="two-col-container">
     <h1>Maybe some text here</h1>
     <div>
-      <button mat-raised-button color="primary">More</button>
-      <button mat-raised-button color="primary">Book Trip</button>
+      <a mat-raised-button color="primary" routerLink="vinales/cueva-indio">More</a>
+      <button mat-raised-button color="primary" (click)="openDialog('Cueva del indio', 'cueva-indio', 50)">Book Trip</button>
     </div>
   </div>
   <div class="two-col-container">
