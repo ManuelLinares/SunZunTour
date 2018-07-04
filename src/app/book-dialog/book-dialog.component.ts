@@ -84,7 +84,7 @@ export class BookDialogComponent implements OnInit {
       tripPrice: this.data.price,
       finalPrice: this.data.price * Number(this.persons.value)
     }
-    this.http.post('http://localhost:3000/api', bookData)
+    this.http.post('/api', bookData)
     .subscribe(res => {
       if (res.status == 200) {
         this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '', {duration: 5000});
