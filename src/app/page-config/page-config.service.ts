@@ -3,8 +3,11 @@ import { Http, ResponseContentType } from "@angular/http";
 import { TextLocaleService } from "../text-locale/text-locale.service";
 import { PlaceConfig } from "./place-config";
 import { TripConfig } from "./trip-config";
-import 'rxjs/Rx';
 import { Observable } from "rxjs";
+import "rxjs/add/operator/filter";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/merge";
+import "rxjs/add/operator/mergeMap";
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 

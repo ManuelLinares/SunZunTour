@@ -4,6 +4,7 @@ import { PageConfigService } from "../page-config/page-config.service";
 import { TripConfig } from "../page-config/trip-config";
 import { DOCUMENT } from "@angular/platform-browser";
 import { Observable } from 'rxjs';
+import "rxjs/add/operator/catch";
 
 @Injectable()
 export class TripConfigResolverService implements Resolve<TripConfig>{

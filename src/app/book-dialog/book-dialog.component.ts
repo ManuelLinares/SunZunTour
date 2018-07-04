@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { DateAdapter, MAT_DIALOG_DATA, MatSnackBar, MatSnackBarConfig, MatDialogRef } from "@angular/material";
+import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from "@angular/material";
 import { Http } from '@angular/http';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
