@@ -1,29 +1,116 @@
-<h2 mat-dialog-title>Book trip <strong>{{data.name}}</strong></h2>
-<form [formGroup]="bookForm">
-  <mat-dialog-content>
+<h2 mat-dialog-title>Book trip
+  <strong>{{data.name}}</strong>
+</h2>
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content class="dialog-width">
+    <table class="field-full-width" cellspacing="0" *ngIf="pcLayout">
+      <tr>
+        <td>
+          <mat-form-field color="accent" class="field-full-width">
+            <input matInput placeholder="Name" required formControlName="name">
+            <mat-error *ngIf="name.hasError('required')">
+              Name is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field color="accent" class="field-full-width">
+            <input matInput placeholder="Email" required type="email" formControlName="email">
+            <mat-error *ngIf="email.hasError('pattern')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="field-full-width" cellspacing="0" *ngIf="pcLayout">
+      <tr>
+        <td>
+          <mat-form-field color="accent" class="field-full-width">
+            <input matInput [matDatepicker]="picker" required placeholder="Choose a date" [max]="maxDate" [min]="minDate" formControlName="datePicker"
+              [(ngModel)]="dateValue" (focus)="picker.open()" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="datePicker.hasError('required')">
+              Date is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field color="accent" class="field-full-width">
+            <input matInput placeholder="Persons" required formControlName="persons" type="number" (change)="updatePrice()">
+            <mat-error *ngIf="persons.hasError('required')">
+              Persons is
+              <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="persons.hasError('min')">
+              Please enter a number between 1 and 99
+            </mat-error>
+            <mat-error *ngIf="persons.hasError('pattern')">
+              Please enter a number between 1 and 99
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field color="accent" class="field-full-width">
+            <input matInput placeholder="Price" disabled [value]="totalPrice">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="!pcLayout">
+      <mat-form-field color="accent" class="field-full-width">
+        <input matInput placeholder="Name" required formControlName="name">
+        <mat-error *ngIf="name.hasError('required')">
+          Name is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" class="field-full-width">
+        <input matInput placeholder="Email" required type="email" formControlName="email">
+        <mat-error *ngIf="email.hasError('pattern')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          Email is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" class="field-full-width">
+        <input matInput [matDatepicker]="picker" required placeholder="Choose a date" [max]="maxDate" [min]="minDate" formControlName="datePicker"
+          [(ngModel)]="dateValue" (focus)="picker.open()" readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker touchUi></mat-datepicker>
+        <mat-error *ngIf="datePicker.hasError('required')">
+          Date is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" class="field-full-width">
+        <input matInput placeholder="Persons" required formControlName="persons" type="number" (change)="updatePrice()">
+        <mat-error *ngIf="persons.hasError('required')">
+          Persons is
+          <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="persons.hasError('min')">
+          Please enter a number between 1 and 99
+        </mat-error>
+        <mat-error *ngIf="persons.hasError('pattern')">
+          Please enter a number between 1 and 99
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" class="field-full-width">
+        <input matInput placeholder="Price" disabled [value]="totalPrice">
+      </mat-form-field>
+    </div>
     <mat-form-field color="accent" class="field-full-width">
-      <input matInput placeholder="Name" required formControlName="name">
-      <mat-error *ngIf="name.hasError('required')">
-        Name is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field color="accent" class="field-full-width">
-      <input matInput placeholder="Email" required type="email" formControlName="email">
-      <mat-error *ngIf="email.hasError('pattern')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="email.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field color="accent" class="field-full-width">
-      <input matInput [matDatepicker]="picker" required placeholder="Choose a date" [max]="maxDate" [min]="minDate" formControlName="datePicker"
-        [(ngModel)]="dateValue">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="datePicker.hasError('required')">
-        Date is <strong>required</strong>
-      </mat-error>
+      <textarea matInput placeholder="Comments" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="9" formControlName="comments"></textarea>
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions class="buttons-left">
