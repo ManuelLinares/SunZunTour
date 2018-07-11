@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from "@angular/material";
+import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
 import { Http } from '@angular/http';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -20,6 +20,20 @@ export class BookDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<BookDialogComponent>
   ) { }
 
+  submitted = false;
+
+  bookForm: FormGroup;
+
+  minDate: Date;
+
+  maxDate: Date;
+
+  dateValue: Date;
+
+  totalPrice: string;
+
+  pcLayout: boolean;
+
   ngOnInit() {
     this.minDate = new Date(Date.now() + (1000 * 60 * 60 * 24));
     this.maxDate = new Date(this.minDate);
@@ -35,12 +49,6 @@ export class BookDialogComponent implements OnInit {
     this.pcLayout = window.innerWidth > 920;
   }
 
-  bookForm: FormGroup;
-
-  minDate: Date;
-
-  maxDate: Date;
-
   public get name() {
     return this.bookForm.get('name');
   }
@@ -52,28 +60,22 @@ export class BookDialogComponent implements OnInit {
   public get datePicker() {
     return this.bookForm.get('datePicker');
   }
-  
+
   public get persons() {
     return this.bookForm.get('persons');
   }
-  
+
   public get comments() {
     return this.bookForm.get('comments');
   }
-  
-
-  dateValue: Date;
 
   public updatePrice() {
     this.totalPrice = this.data.price * Number(this.persons.value) + ' USD';
   }
 
-  totalPrice: string;
-
-  pcLayout: boolean;
-
   public onSubmit() {
-    let bookData = {
+    this.submitted = true;
+    const bookData = {
       name: this.name.value,
       email: this.email.value,
       datePicker: this.datePicker.value,
@@ -85,14 +87,16 @@ export class BookDialogComponent implements OnInit {
       finalPrice: this.data.price * Number(this.persons.value)
     }
     this.http.post('/api', bookData)
-    .subscribe(res => {
-      if (res.status == 200) {
-        this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '', {duration: 5000});
-        this.dialogRef.close();
-      } else {
-        this.snackBar.open('An error has occur with our server. Please try again later.', '', {duration: 3000});
-      }
-    });
+      .subscribe(res => {
+        if (res.status === 200) {
+          this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '',
+            { duration: 5000 });
+          this.dialogRef.close();
+        } else {
+          this.snackBar.open('An error has occur with our server. Please try again later.', '', { duration: 3000 });
+        }
+        this.submitted = false;
+      });
   }
 
 }
