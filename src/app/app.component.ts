@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from "@angular/router";
-import { PageConfigService } from "./page-config/page-config.service";
+import { Router, NavigationEnd } from '@angular/router';
+import { PageConfigService } from './page-config/page-config.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,20 +8,20 @@ import { Observable } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
     private pageLoader: PageConfigService
-  ) { };
+  ) { }
 
-  public navIsFixed: boolean = false;
+  public navIsFixed = false;
 
   public loading: Observable<boolean>;
 
-  @HostListener("window:scroll", [])
+  @HostListener('window:scroll', [])
   onWindowScroll() {
-    let number = window.scrollY;
+    const number = window.scrollY;
     if (number > 15) {
       this.navIsFixed = true;
     } else if (this.navIsFixed && number < 15) {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { polyfill } from "smoothscroll-polyfill";
+import { polyfill } from 'smoothscroll-polyfill';
 import { MatDialog } from '@angular/material';
-import { BookDialogComponent } from "../book-dialog/book-dialog.component";
+import { BookDialogComponent } from '../book-dialog/book-dialog.component';
 
 @Component({
   selector: 'app-welcome',
@@ -14,18 +14,6 @@ export class WelcomeComponent {
     private dialog: MatDialog
   ) {
     polyfill();
-  }
-
-  scrollDownCarousel(){
-    let toolbarWidth = 64;
-    if (window.innerWidth <= 600) {
-      toolbarWidth = 56;
-    }
-    window.scrollTo({
-      top: window.innerHeight - toolbarWidth,
-      left: 0,
-      behavior: 'smooth'
-    });
   }
 
   config = {
@@ -42,8 +30,20 @@ export class WelcomeComponent {
     speed: 1000
   };
 
+  scrollDownCarousel() {
+    let toolbarWidth = 64;
+    if (window.innerWidth <= 600) {
+      toolbarWidth = 56;
+    }
+    window.scrollTo({
+      top: window.innerHeight - toolbarWidth,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
   openDialog(tripName: string, tripId: string, tripPrice: number) {
-    let dialogRef = this.dialog.open(BookDialogComponent, {
+    this.dialog.open(BookDialogComponent, {
       data: {
         name: tripName,
         id: tripId,

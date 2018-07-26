@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PlacesComponent } from './places/places.component';
 import { TripComponent } from './trip/trip.component';
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { PlaceConfigResolverService } from "./place-config-resolver/place-config-resolver.service";
-import { TripConfigResolverService } from "./trip-config-resolver/trip-config-resolver.service";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PlaceConfigResolverService } from './place-config-resolver/place-config-resolver.service';
+import { TripConfigResolverService } from './trip-config-resolver/trip-config-resolver.service';
 
 const routes: Routes = [
   {

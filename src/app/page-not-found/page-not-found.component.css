@@ -1,18 +1,20 @@
-.top-image{
-    margin-bottom: 20px;
-    position: relative;
-    height: 50vh;
-    background-attachment: fixed;
-    background-position-x: center;
-    background-position-y: -50vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+.top-image {
+  margin-bottom: 20px;
+  position: relative;
+  height: 50vh;
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: -50vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.container{
-    margin-left: 10%;
-    margin-right: 10%;
-    width: auto;
+
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: auto;
 }
-.text-center{
-    text-align: center;
+
+.text-center {
+  text-align: center;
 }

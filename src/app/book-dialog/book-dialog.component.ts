@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { environment as env } from '../../environments/environment';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PERSONS_REGEX = /^[0-9]{1,2}$/;
@@ -15,7 +16,7 @@ export class BookDialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private http: Http,
+    private http: HttpClient,
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<BookDialogComponent>
   ) { }
@@ -85,18 +86,18 @@ export class BookDialogComponent implements OnInit {
       tripId: this.data.id,
       tripPrice: this.data.price,
       finalPrice: this.data.price * Number(this.persons.value)
-    }
-    this.http.post('/api', bookData)
-      .subscribe(res => {
-        if (res.status === 200) {
-          this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '',
-            { duration: 5000 });
-          this.dialogRef.close();
-        } else {
-          this.snackBar.open('An error has occur with our server. Please try again later.', '', { duration: 3000 });
-        }
+    };
+    this.http.post(env.API, bookData)
+      .subscribe(() => {
+        this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '',
+          { duration: 5000 });
+        this.dialogRef.close();
         this.submitted = false;
-      });
+      },
+        (err) => {
+          this.snackBar.open('An error has occur with our server. Please try again later.', '', { duration: 3000 });
+          this.submitted = false;
+        });
   }
 
 }

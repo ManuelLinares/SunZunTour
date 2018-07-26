@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { TripConfig } from "../page-config/trip-config";
-import { ActivatedRoute, Router } from "@angular/router";
-import { MatDialog } from "@angular/material";
-import { BookDialogComponent } from "../book-dialog/book-dialog.component";
+import { TripConfig } from '../page-config/trip-config';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { BookDialogComponent } from '../book-dialog/book-dialog.component';
 
 @Component({
   selector: 'app-trip',
@@ -17,10 +17,14 @@ export class TripComponent implements OnInit {
     private router: Router
   ) { }
 
-  @HostListener("window:scroll", [])
+  config: TripConfig;
+
+  backgroundPositionY: number;
+
+  @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.innerWidth > 600) {
-      let number = window.scrollY;
+      const number = window.scrollY;
       this.backgroundPositionY = -number / 2;
     }
   }
@@ -32,12 +36,8 @@ export class TripComponent implements OnInit {
       });
   }
 
-  config: TripConfig;
-
-  backgroundPositionY: number;
-
   openDialog() {
-    let dialogRef = this.dialog.open(BookDialogComponent, {
+    this.dialog.open(BookDialogComponent, {
       data: {
         name: this.config.name,
         id: this.route.snapshot.paramMap.get('trip'),
@@ -49,5 +49,5 @@ export class TripComponent implements OnInit {
   goToPlaces() {
     this.router.navigate([this.route.snapshot.url[0].path]);
   }
-  
+
 }
