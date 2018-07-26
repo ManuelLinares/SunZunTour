@@ -1,6 +1,6 @@
 <div class="top-image-container" *ngIf="config">
   <div class="top-image">
-    <img [src]="config.mainImgUrl" [style.bottom]="backgroundPositionY + 'px'"/>
+    <img [src]="config.mainImgUrl" [style.bottom]="backgroundPositionY + 'px'" />
   </div>
   <div class="mat-typography header-info">
     <h1>Bla bla wonders of ...</h1>
@@ -17,7 +17,9 @@
         <img [src]="card.imgUrl" alt="Trip image" class="img-responsive">
         <div class="hover-info">
           <p>{{card.text}}</p>
-          <h1>Price: <strong>${{card.price}}</strong></h1>
+          <h1>Price:
+            <strong>${{card.price}}</strong>
+          </h1>
           <div>
             <button mat-raised-button color="primary" (click)="openDialog(card.name, card.id, card.price)">Book</button>
           </div>

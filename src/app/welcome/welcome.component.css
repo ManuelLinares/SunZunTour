@@ -1,137 +1,155 @@
-swiper{
-    height: 100vh;
+swiper {
+  height: 100vh;
 }
-.slide-image{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-attachment: scroll;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.slide-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.slide-text{
-    position: absolute;
-    z-index: 10;
-    bottom: 50%;
-    width: 100%;    
-    display: flex;
-    justify-content: center;
+
+.slide-text {
+  position: absolute;
+  z-index: 10;
+  bottom: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.recomended-trip-button{
-    border: 1px solid white;
-    border-radius: 15px;
-    transition-property: all;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-    transition-delay: initial;
-    text-shadow: 0 10px 20px rgba(0,0,0,0.6);
-    font-size: 24px;
-    line-height: 48px;
-    height: 48px;
-    padding-left: 18px;
-    padding-right: 18px;
-    color: white;
+
+.recomended-trip-button {
+  border: 1px solid white;
+  border-radius: 15px;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: initial;
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  font-size: 24px;
+  line-height: 48px;
+  height: 48px;
+  padding-left: 18px;
+  padding-right: 18px;
+  color: white;
 }
-.recomended-trip-button:hover{
-    color: black;
-    background-color: white;
+
+.recomended-trip-button:hover {
+  color: black;
+  background-color: white;
 }
+
 /* .swiper-pagination{
     bottom: 50%;
-} */ 
-.scroll-down{
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    z-index: 10;
-    opacity: 0.5;
-    margin-left: -28px;
-    color: white;
-    background-color: transparent;
-    border: 1px solid white;
+} */
+
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  z-index: 10;
+  opacity: 0.5;
+  margin-left: -28px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
 }
-.scroll-down:hover{
-    opacity: 1;
-    background-color: white;
-    color: black;
+
+.scroll-down:hover {
+  opacity: 1;
+  background-color: white;
+  color: black;
 }
-.slide0-image{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/vinales/header.jpg);
+
+.slide0-image {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../../assets/images/vinales/header.jpg);
 }
-.slide1-image{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/varadero/header.jpg);
+
+.slide1-image {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../../assets/images/varadero/header.jpg);
 }
-.slide2-image{
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%), url(../../assets/images/zapata/header.jpg);
+
+.slide2-image {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../../assets/images/zapata/header.jpg);
 }
-.container{
-    padding-top: 15px;
-    padding-bottom: 5px;
-    padding-right: calc((100% - 1200px) / 2);
-    padding-left: calc((100% - 1200px) / 2);
-    display: flex;
-    position: relative;
-    box-sizing: border-box;
-    border-top: 4px solid gray;
-    background-color: #EEEEEE;
+
+.container {
+  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-right: calc((100% - 1200px) / 2);
+  padding-left: calc((100% - 1200px) / 2);
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  border-top: 4px solid gray;
+  background-color: #EEEEEE;
 }
-.two-col-container{
-    width: 50%;
-    padding-left: 15px;
-    padding-right: 15px;
-    float: left;
-    position: relative;
-    box-sizing: border-box;
-    display: flex;
+
+.two-col-container {
+  width: 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.two-col-container>h1 {
+  text-align: center;
+}
+
+.parallax {
+  height: 75vh;
+}
+
+.parallax-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("../../assets/car3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: -2000;
+}
+
+@media screen and (max-width: 1220px) {
+  .container {
+    padding-right: calc((100% - 900px) / 2);
+    padding-left: calc((100% - 900px) / 2);
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .container {
+    padding-right: calc((100% - 600px) / 2);
+    padding-left: calc((100% - 600px) / 2);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding-right: 1%;
+    padding-left: 1%;
     flex-direction: column;
-    align-items: center;
-}
-.two-col-container>h1{
-    text-align: center;
-}
-.parallax { 
-    height: 75vh;
-}
-.parallax-background{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-image: url("../../assets/car3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
-    z-index: -2000;
-}
-@media screen and (max-width: 1220px){
-    .container{
-        padding-right: calc((100% - 900px) / 2);
-        padding-left: calc((100% - 900px) / 2);
-    }
-}
-@media screen and (max-width: 920px){
-    .container{
-        padding-right: calc((100% - 600px) / 2);
-        padding-left: calc((100% - 600px) / 2);
-    }
-}
-@media screen and (max-width: 600px){
-    .container{
-        width: 100%;
-        padding-right: 1%;
-        padding-left: 1%;
-        flex-direction: column;
-    }
-    .two-col-container{
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    .scroll-down{
-        bottom: 60px;
-    }
-    .parallax{
-        background-attachment: scroll;
-    }
+  }
+  .two-col-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .scroll-down {
+    bottom: 60px;
+  }
+  .parallax {
+    background-attachment: scroll;
+  }
 }

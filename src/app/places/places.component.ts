@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { PlaceConfig } from "../page-config/place-config";
-import { ActivatedRoute } from "@angular/router";
-import { MatDialog } from "@angular/material";
-import { BookDialogComponent } from "../book-dialog/book-dialog.component";
+import { PlaceConfig } from '../page-config/place-config';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { BookDialogComponent } from '../book-dialog/book-dialog.component';
 
 @Component({
   selector: 'app-places',
@@ -16,10 +16,14 @@ export class PlacesComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
-  @HostListener("window:scroll", [])
+  config: PlaceConfig;
+
+  backgroundPositionY: number;
+
+  @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.innerWidth > 600) {
-      let number = window.scrollY;
+      const number = window.scrollY;
       this.backgroundPositionY = -number / 2;
     }
   }
@@ -31,12 +35,8 @@ export class PlacesComponent implements OnInit {
       });
   }
 
-  config: PlaceConfig;
-
-  backgroundPositionY: number;
-
   openDialog(tripName: string, tripId: string, tripPrice: number) {
-    let dialogRef = this.dialog.open(BookDialogComponent, {
+    this.dialog.open(BookDialogComponent, {
       data: {
         name: tripName,
         id: tripId,

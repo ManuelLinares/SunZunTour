@@ -1,19 +1,23 @@
-.field-full-width{
+.field-full-width {
+  width: 100%;
+}
+
+.buttons-left {
+  justify-content: flex-end;
+}
+
+.dialog-width {
+  width: 582px;
+}
+
+@media screen and (max-width: 920px) {
+  .dialog-width {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dialog-width {
     width: 100%;
-}
-.buttons-left{
-    justify-content: flex-end;
-}
-.dialog-width{
-    width: 582px;
-}
-@media screen and (max-width: 920px){
-    .dialog-width{
-        width: 400px;
-    }
-}
-@media screen and (max-width: 600px){
-    .dialog-width{
-        width: 100%;
-    }
+  }
 }

@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import { messages } from "./locale";
+import { messages } from './locale';
 
 @Injectable()
 export class TextLocaleService {
 
   constructor() {
     this.lang = window.navigator.language.split('-')[0];
-    if ((this.lang != 'es') && (this.lang != 'en')) {
-      this.lang = 'en'
+    if ((this.lang !== 'es') && (this.lang !== 'en')) {
+      this.lang = 'en';
     }
   }
 
-  lang: string
+  lang: string;
 
   public getLang(): string {
     return this.lang;
   }
 
   public getText(key: string, lang: string): string {
-    let language = messages[lang];
-        if (language != undefined){
-            return language[key];
-        }
-        return messages.en[key];
+    const language = messages[lang];
+    if (language !== undefined) {
+      return language[key];
+    }
+    return messages.en[key];
   }
 
 }

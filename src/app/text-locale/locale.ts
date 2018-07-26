@@ -1,11 +1,11 @@
 export let messages = {
 
-    es: {
-        "zapata-peninsula": "Península de Zapata"
-    },
+  es: {
+    'zapata-peninsula': 'Península de Zapata'
+  },
 
-    en: {
-        "zapata-peninsula": "Zapata Peninsula"
-    }
+  en: {
+    'zapata-peninsula': 'Zapata Peninsula'
+  }
 
-}
+};
