@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
+import { environment as env } from '../../environments/environment';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PERSONS_REGEX = /^[0-9]{1,2}$/;
@@ -86,7 +87,7 @@ export class BookDialogComponent implements OnInit {
       tripPrice: this.data.price,
       finalPrice: this.data.price * Number(this.persons.value)
     };
-    this.http.post('http://localhost:3000/api', bookData)
+    this.http.post(env.API, bookData)
       .subscribe(() => {
         this.snackBar.open('Trip ' + this.data.name + ' booked successfully. Our team will contact you in no time.', '',
           { duration: 5000 });
