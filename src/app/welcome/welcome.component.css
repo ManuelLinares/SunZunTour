@@ -106,6 +106,17 @@ swiper {
 
 .parallax {
   height: 75vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.parallax__img-1 {
+  background-image: url("../../assets/car3.jpg");
+}
+
+.parallax__img-2 {
+  background-image: url("../../assets/car1.jpg");
 }
 
 .parallax-background {
