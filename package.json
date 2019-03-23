@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "ng build --prod"
+    "build-prod": "ng build --prod",
+    "now-build": "ng build --prod --output-path dist"
   },
   "private": true,
   "dependencies": {
