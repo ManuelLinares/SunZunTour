@@ -65,15 +65,15 @@ swiper {
 }
 
 .slide0-image {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../../assets/images/vinales/header.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(/assets/images/vinales/header.jpg);
 }
 
 .slide1-image {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../../assets/images/varadero/header.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(/assets/images/varadero/header.jpg);
 }
 
 .slide2-image {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../../assets/images/zapata/header.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(/assets/images/zapata/header.jpg);
 }
 
 .container {
@@ -112,18 +112,18 @@ swiper {
   background-attachment: fixed;
 }
 .parallax__img-1 {
-  background-image: url("../../assets/car3.jpg");
+  background-image: url("/assets/car3.jpg");
 }
 
 .parallax__img-2 {
-  background-image: url("../../assets/car1.jpg");
+  background-image: url("/assets/car1.jpg");
 }
 
 .parallax-background {
   position: fixed;
   top: 0;
   left: 0;
-  background-image: url("../../assets/car3.jpg");
+  background-image: url("/assets/car3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
